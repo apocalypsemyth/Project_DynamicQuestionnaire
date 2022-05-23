@@ -1,0 +1,54 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="DynamicQuestionnaire.BackAdmin.Admin" %>
+
+<%@ Register Src="~/Components/ucLoadingProgressBar.ascx" TagPrefix="uc1" TagName="ucLoadingProgressBar" %>
+
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>後台 - 問卷管理</title>
+    <link rel="stylesheet" href="../Css/BackAdmin/Admin.css" />
+    <link rel="stylesheet" href="../Css/BackAdmin/QuestionnaireDetail.css" />
+    <link rel="stylesheet" href="../Content/bootstrap.min.css" />
+    <script src="../Scripts/jquery.min.js"></script>
+    <script src="../JavaScript/BackAdmin/Variables/BackAdminVariable.js"></script>
+    <script src="../JavaScript/BackAdmin/Funcs/QuestionnaireListFunc.js"></script>
+    <script src="../JavaScript/BackAdmin/Funcs/QuestionnaireDetailFunc.js"></script>
+    <script src="../JavaScript/BackAdmin/Funcs/CommonQuestionDetailFunc.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <uc1:ucLoadingProgressBar runat="server" id="ucLoadingProgressBar" />
+    <form id="form1" runat="server">
+        <div id="backAdminFormContainer" class="row align-items-center justify-content-center g-0 gy-3 p-3">
+            <div class="col-md-11">
+                <h1>後台 - 問卷管理</h1>
+            </div>
+
+            <div id="backAdminFormSidebar" class="col-md-2">
+                <div class="d-flex flex-column">
+                    <a href="QuestionnaireList.aspx">問卷管理</a>
+                    <a href="CommonQuestionList.aspx">常用問題管理</a>
+                    <div class="w-auto mt-3 mt-md-5">
+                        <a class="btn btn-info text-white" href="../QuestionnaireList.aspx">前台 - 問卷填寫</a>
+                    </div>
+                </div>
+            </div>
+
+            <main class="col-md-8 offset-md-3">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </main>
+        </div>
+    </form>
+
+    <script src="../Scripts/bootstrap.min.js"></script>
+    <script src="../JavaScript/BackAdmin/QuestionnaireAndCommonQuestionDetail.js"></script>
+    <script src="../JavaScript/BackAdmin/QuestionnaireDetail.js"></script>
+    <script src="../JavaScript/BackAdmin/Modules/QuestionnaireDetailModule.js"></script>
+    <script src="../JavaScript/BackAdmin/CommonQuestionDetail.js"></script>
+    <script src="../JavaScript/BackAdmin/Modules/CommonQuestionDetailModule.js"></script>
+</body>
+</html>

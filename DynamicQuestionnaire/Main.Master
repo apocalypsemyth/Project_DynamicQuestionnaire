@@ -1,0 +1,48 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Main.master.cs" Inherits="DynamicQuestionnaire.Main" %>
+
+<%@ Register Src="~/Components/ucLoadingProgressBar.ascx" TagPrefix="uc1" TagName="ucLoadingProgressBar" %>
+
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>前台 - 問卷填寫</title>
+    <link rel="stylesheet" href="Css/Main.css" />
+    <link rel="stylesheet" href="Content/bootstrap.min.css" />
+    <script src="Scripts/jquery.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="JavaScript/Variables/FrontVariable.js"></script>
+    <script src="JavaScript/Funcs/QuestionnaireDetailFunc.js"></script>
+    <script src="JavaScript/Funcs/QuestionnaireStatisticsFunc.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <uc1:ucLoadingProgressBar runat="server" ID="ucLoadingProgressBar" />
+    <form id="form1" runat="server">
+        <div id="formContainer" class="row align-items-center justify-content-center g-0 gy-3 p-3">
+            <div class="col-md-11">
+                <h1>前台 - 問卷填寫</h1>
+            </div>
+
+            <asp:PlaceHolder ID="plcToggleFormSidebar" runat="server">
+                <div id="formSidebar" class="col-md-2">
+                    <div class="w-auto">
+                        <a class="btn btn-info text-white" href="BackAdmin/QuestionnaireList.aspx">後台 - 問卷管理</a>
+                    </div>
+                </div>
+            </asp:PlaceHolder>
+
+            <main id="formMain" class="col-md-8 offset-md-3" runat="server">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </main>
+        </div>
+    </form>
+
+    <script src="Scripts/bootstrap.min.js"></script>
+    <script src="JavaScript/QuestionnaireDetail.js"></script>
+    <script src="JavaScript/Modules/QuestionnaireDetailModule.js"></script>
+</body>
+</html>

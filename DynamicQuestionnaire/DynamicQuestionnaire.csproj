@@ -106,7 +106,6 @@
     <Content Include="Css\BackAdmin\QuestionnaireDetail.css" />
     <Content Include="Css\Components\ucLoadingProgressBar.css" />
     <Content Include="Css\Main.css" />
-    <Content Include="DB\DynamicQuestionnaire_Schema_And_Data.sql" />
     <Content Include="Global.asax" />
     <Content Include="Index.aspx" />
     <Content Include="JavaScript\BackAdmin\Funcs\CommonQuestionDetailFunc.js" />
@@ -139,7 +138,6 @@
     <Content Include="API\BackAdmin\CommonQuestionDetailDataHandler.ashx" />
     <Content Include="API\QuestionnaireStatisticsDataHandler.ashx" />
     <Content Include="API\BackAdmin\QuestionnaireAndCommonQuestionDetailDataHandler.ashx" />
-    <Content Include="DB\DynamicQuestionnaire.bak" />
     <None Include="Scripts\jquery-3.6.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.6.0.js" />
     <Content Include="Scripts\jquery.min.js" />

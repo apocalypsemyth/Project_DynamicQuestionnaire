@@ -5,6 +5,12 @@ VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicQuestionnaire", "DynamicQuestionnaire\DynamicQuestionnaire.csproj", "{F3E04780-E165-4081-B0F4-3A61E5208E63}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DB", "DB", "{9A341AC6-9E23-4E13-A847-9D5BA3D8E922}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Downloads\DynamicQuestionnaire.bak = ..\..\Downloads\DynamicQuestionnaire.bak
+		..\..\Downloads\DynamicQuestionnaire_Schema_And_Data.sql = ..\..\Downloads\DynamicQuestionnaire_Schema_And_Data.sql
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

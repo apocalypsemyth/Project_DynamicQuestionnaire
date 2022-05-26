@@ -40,7 +40,7 @@
                         開始時間：
                     </label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtStartDate" CssClass="form-control" runat="server" />
+                        <asp:TextBox ID="txtStartDate" CssClass="form-control" placeholder="輸入格式 (yyyy/MM/dd)" runat="server" />
                     </div>
                 </div>
             </div>
@@ -51,7 +51,7 @@
                         結束時間：
                     </label>
                     <div class="col-sm-10">
-                        <asp:TextBox ID="txtEndDate" CssClass="form-control" runat="server" />
+                        <asp:TextBox ID="txtEndDate" CssClass="form-control" placeholder="輸入格式 (yyyy/MM/dd)" runat="server" />
                     </div>
                 </div>
             </div>

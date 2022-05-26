@@ -41,7 +41,7 @@ var GetQuestionInputs = function () {
 }
 var CheckQuestionnaireInputs = function (objQuestionnaire) {
     let arrErrorMsg = [];
-    let regex = /^[0-9]{4}\/(0[1-9]|1[0-2])\/(0[1-9]|[1-2][0-9]|3[0-1])$/;
+    let regex = /^[0-9]{4}\/[0-9]{2}\/[0-9]{2}$/;
 
     if (!objQuestionnaire.caption)
         arrErrorMsg.push("請填入問卷名稱。");
@@ -58,6 +58,8 @@ var CheckQuestionnaireInputs = function (objQuestionnaire) {
     else {
         if (!regex.test(objQuestionnaire.startDate))
             arrErrorMsg.push(`請以 "yyyy/MM/dd" 的格式輸入開始時間。`);
+        else if (new Date(objQuestionnaire.startDate) == "Invalid Date")
+            arrErrorMsg.push(`請輸入合法的開始時間。`);
         else {
             let startDate = new Date(objQuestionnaire.startDate);
             let startDateMillisecond = Date.parse(startDate);
@@ -72,6 +74,8 @@ var CheckQuestionnaireInputs = function (objQuestionnaire) {
     if (objQuestionnaire.endDate) {
         if (!regex.test(objQuestionnaire.endDate))
             arrErrorMsg.push(`請以 "yyyy/MM/dd" 的格式輸入結束時間。`);
+        else if (new Date(objQuestionnaire.endDate) == "Invalid Date")
+            arrErrorMsg.push(`請輸入合法的結束時間。`);
         else {
             let startDate = new Date(objQuestionnaire.startDate);
             let startDateMillisecond = Date.parse(startDate);

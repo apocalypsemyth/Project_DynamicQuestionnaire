@@ -26,10 +26,10 @@
                         開始 / 結束：
                     </label>
                     <div class="col-sm-4">
-                        <asp:TextBox ID="txtStartDate" CssClass="form-control" runat="server" />
+                        <asp:TextBox ID="txtStartDate" CssClass="form-control" placeholder="輸入格式 (yyyy/MM/dd)" runat="server" />
                     </div>
                     <div class="col-sm-4">
-                        <asp:TextBox ID="txtEndDate" CssClass="form-control" runat="server" />
+                        <asp:TextBox ID="txtEndDate" CssClass="form-control" placeholder="輸入格式 (yyyy/MM/dd)" runat="server" />
                     </div>
                     <div class="col-sm-2 align-self-center offset-10 mt-3 offset-sm-0 mt-sm-0">
                         <asp:Button ID="btnSearchQuestionnaire" CssClass="btn btn-primary" runat="server" Text="搜尋" OnClick="btnSearchQuestionnaire_Click" />
@@ -73,7 +73,7 @@
                 </asp:GridView>
 
                 <asp:PlaceHolder ID="plcEmpty" runat="server" Visible="false">
-                    <p>尚未有資料 </p>
+                    <p>尚未有資料</p>
                 </asp:PlaceHolder>
             </div>
 

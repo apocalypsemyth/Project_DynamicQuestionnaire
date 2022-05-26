@@ -172,9 +172,10 @@ namespace DynamicQuestionnaire.BackAdmin
             {
                 List<Question> newQuestionList = 
                     this.Session[_questionList] as List<Question>;
+
                 if (newQuestionList == null || newQuestionList.Count == 0)
                 {
-                    this.AlertMessage("請填寫至少一個問題。");
+                    this.AlertMessage("請先按下加入按鈕，新增保留至少一個問題。");
                     this.Session[_isPostBackUpdate] = false;
                     return;
                 }

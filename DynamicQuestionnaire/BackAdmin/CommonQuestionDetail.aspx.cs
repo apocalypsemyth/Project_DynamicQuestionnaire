@@ -143,9 +143,10 @@ namespace DynamicQuestionnaire.BackAdmin
                 List<Question> newQuestionListOfCommonQuestion =
                     this.Session[_questionListOfCommonQuestion] as List<Question>;
 
-                if (newQuestionListOfCommonQuestion.Count == 0)
+                if (newQuestionListOfCommonQuestion == null 
+                    || newQuestionListOfCommonQuestion.Count == 0)
                 {
-                    this.AlertMessage("請先按下加入按鈕新增至少一個問題。");
+                    this.AlertMessage("請先按下加入按鈕，新增保留至少一個問題。");
                     this.Session[_isPostBack] = false;
                     return;
                 }

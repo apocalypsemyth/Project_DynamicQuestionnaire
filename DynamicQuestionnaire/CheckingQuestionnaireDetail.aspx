@@ -26,7 +26,7 @@
                                     Text='<%# DateTime.Parse(Eval("StartDate").ToString())
                                         .ToShortDateString() + 
                                         " ~ " + 
-                                        (!string.IsNullOrWhiteSpace(Eval("EndDate")?.ToString())
+                                        (!string.IsNullOrWhiteSpace(Eval("EndDate") as string)
                                         ? DateTime.Parse(Eval("EndDate").ToString()).ToShortDateString()
                                         : "未知") %>' 
                                 />

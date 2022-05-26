@@ -104,23 +104,19 @@ var CheckQuestionInputs = function (objQuestion) {
         let questionAnswer = objQuestion.questionAnswer;
         let hasSemicolon = questionAnswer.indexOf(";") !== -1;
 
-        if (!hasSemicolon)
-            arrErrorMsg.push(`請以 ";" 分隔多個答案。`);
-        else {
-            let strArrChecking =
-                hasSemicolon
-                    ? questionAnswer.trim().split(";")
-                    : questionAnswer;
+        let strArrChecking =
+            hasSemicolon
+                ? questionAnswer.trim().split(";")
+                : questionAnswer;
 
-            if (Array.isArray(strArrChecking)) {
-                let hasWhiteSpace = strArrChecking.some(item => /\s/.test(item));
-                let hasStartOrEndWhiteSpace = strArrChecking.some(strChecking => !strChecking);
+        if (Array.isArray(strArrChecking)) {
+            let hasWhiteSpace = strArrChecking.some(item => /\s/.test(item));
+            let hasStartOrEndWhiteSpace = strArrChecking.some(strChecking => !strChecking);
 
-                if (hasWhiteSpace)
-                    arrErrorMsg.push("請不要留空於分號之間。");
-                if (hasStartOrEndWhiteSpace)
-                    arrErrorMsg.push("請不要分號於開頭或結尾。");
-            }
+            if (hasWhiteSpace)
+                arrErrorMsg.push("請不要留空於分號之間。");
+            if (hasStartOrEndWhiteSpace)
+                arrErrorMsg.push("請不要分號於開頭或結尾。");
         }
     }
 
@@ -605,7 +601,7 @@ var CreateUserListTable = function (objArrUserModel, intTotalRows, intPagerIndex
                         ${objArrUserModel[i].UserName}
                     </td>
                     <td>
-                        ${objArrUserModel[i].AnswerDate}
+                        ${new Date(objArrUserModel[i].AnswerDate).toLocaleString()}
                     </td>
                     <td>
                         <a

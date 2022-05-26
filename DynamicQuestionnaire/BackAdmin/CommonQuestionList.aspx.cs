@@ -68,7 +68,7 @@ namespace DynamicQuestionnaire.BackAdmin
             string keyword = this.txtKeyword.Text.Trim();
 
             if (string.IsNullOrWhiteSpace(keyword))
-                this.Response.Redirect("CommonQuestionList.aspx");
+                this.AlertMessage("請輸入要搜尋的關鍵字。");
             else
                 this.Response.Redirect("CommonQuestionList.aspx?Keyword=" + keyword);
         }

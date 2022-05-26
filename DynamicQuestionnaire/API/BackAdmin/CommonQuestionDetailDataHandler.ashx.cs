@@ -23,6 +23,9 @@ namespace DynamicQuestionnaire.API.BackAdmin
         // Session for handling postBack
         private string _isPostBack = "IsPostBack";
 
+        // Session for signing existence of questionListOfCommonQuestion
+        private string _hasQuestionListOfCommonQuestion = "HasQuestionListOfCommonQuestion";
+
         // Session name
         private string _isUpdateMode = "IsUpdateMode";
         private string _commonQuestion = "CommonQuestion";
@@ -182,12 +185,14 @@ namespace DynamicQuestionnaire.API.BackAdmin
                     if (questionListOfCommonQuestion == null)
                     {
                         context.Session[_questionListOfCommonQuestion] = new List<Question>();
+                        context.Session[_hasQuestionListOfCommonQuestion] = false;
 
                         context.Response.ContentType = _textResponse;
                         context.Response.Write(_nullResponse);
                         return;
                     }
 
+                    context.Session[_hasQuestionListOfCommonQuestion] = true;
                     string jsonText =
                         Newtonsoft
                         .Json

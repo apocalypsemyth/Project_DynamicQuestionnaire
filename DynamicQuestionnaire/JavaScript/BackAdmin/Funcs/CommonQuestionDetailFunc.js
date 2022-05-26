@@ -59,9 +59,8 @@ function SubmitCommonQuestionForServer(strOperate) {
         success: function (strOrObjCommonQuestion) {
             if (strOrObjCommonQuestion === SUCCESSED) 
                 return true;
-            else if (strOrObjCommonQuestion != null) {
+            else if (strOrObjCommonQuestion != null) 
                 return true;
-            }
             else {
                 alert(errorMessageOfRetry);
                 return false;

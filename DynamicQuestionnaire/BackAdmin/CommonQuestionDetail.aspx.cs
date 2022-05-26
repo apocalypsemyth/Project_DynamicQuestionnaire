@@ -18,6 +18,9 @@ namespace DynamicQuestionnaire.BackAdmin
         private string _isPostBack = "IsPostBack";
         private string _isPostBackUpdate = "IsPostBackUpdate";
 
+        // Session for signing existence of questionListOfCommonQuestion
+        private string _hasQuestionListOfCommonQuestion = "HasQuestionListOfCommonQuestion";
+
         // Session name
         private string _isUpdateMode = "IsUpdateMode";
         private string _commonQuestion = "CommonQuestion";
@@ -71,6 +74,7 @@ namespace DynamicQuestionnaire.BackAdmin
                         "onClick",
                         "return SubmitCommonQuestionForServer('CREATE');"
                         );
+                    this.Session[_hasQuestionListOfCommonQuestion] = false;
                 }
             }
             else if (this.Session[_isUpdateMode] != null)
@@ -107,8 +111,8 @@ namespace DynamicQuestionnaire.BackAdmin
                 List<QuestionModel> toUpdateQuestionModelListOfCommonQuestion =
                     this.Session[_questionListOfCommonQuestion] as List<QuestionModel>;
 
-                if (toUpdateQuestionModelListOfCommonQuestion == null
-                    || toUpdateQuestionModelListOfCommonQuestion.Count == 0)
+                if (toUpdateQuestionModelListOfCommonQuestion == null 
+                    ||toUpdateQuestionModelListOfCommonQuestion.Count == 0)
                 {
                     this.AlertMessage("請填寫至少一個問題。");
                     this.Session[_isPostBack] = false;
@@ -142,8 +146,17 @@ namespace DynamicQuestionnaire.BackAdmin
             {
                 List<Question> newQuestionListOfCommonQuestion =
                     this.Session[_questionListOfCommonQuestion] as List<Question>;
-                if (newQuestionListOfCommonQuestion == null
-                    || newQuestionListOfCommonQuestion.Count == 0)
+                bool hasQuestionListOfCommonQuestion =
+                    (bool)this.Session[_hasQuestionListOfCommonQuestion];
+
+                if (!hasQuestionListOfCommonQuestion)
+                {
+                    this.AlertMessage("請先按下加入按鈕新增常用問題。");
+                    this.Session[_isPostBack] = false;
+                    return;
+                }
+
+                if (newQuestionListOfCommonQuestion.Count == 0)
                 {
                     this.AlertMessage("請填寫至少一個問題。");
                     this.Session[_isPostBack] = false;

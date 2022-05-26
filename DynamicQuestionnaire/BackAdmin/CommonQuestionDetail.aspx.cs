@@ -18,9 +18,6 @@ namespace DynamicQuestionnaire.BackAdmin
         private string _isPostBack = "IsPostBack";
         private string _isPostBackUpdate = "IsPostBackUpdate";
 
-        // Session for signing existence of questionListOfCommonQuestion
-        private string _hasQuestionListOfCommonQuestion = "HasQuestionListOfCommonQuestion";
-
         // Session name
         private string _isUpdateMode = "IsUpdateMode";
         private string _commonQuestion = "CommonQuestion";
@@ -74,7 +71,6 @@ namespace DynamicQuestionnaire.BackAdmin
                         "onClick",
                         "return SubmitCommonQuestionForServer('CREATE');"
                         );
-                    this.Session[_hasQuestionListOfCommonQuestion] = false;
                 }
             }
             else if (this.Session[_isUpdateMode] != null)
@@ -146,19 +142,10 @@ namespace DynamicQuestionnaire.BackAdmin
             {
                 List<Question> newQuestionListOfCommonQuestion =
                     this.Session[_questionListOfCommonQuestion] as List<Question>;
-                bool hasQuestionListOfCommonQuestion =
-                    (bool)this.Session[_hasQuestionListOfCommonQuestion];
-
-                if (!hasQuestionListOfCommonQuestion)
-                {
-                    this.AlertMessage("請先按下加入按鈕新增常用問題。");
-                    this.Session[_isPostBack] = false;
-                    return;
-                }
 
                 if (newQuestionListOfCommonQuestion.Count == 0)
                 {
-                    this.AlertMessage("請填寫至少一個問題。");
+                    this.AlertMessage("請先按下加入按鈕新增至少一個問題。");
                     this.Session[_isPostBack] = false;
                     return;
                 }
@@ -216,6 +203,7 @@ namespace DynamicQuestionnaire.BackAdmin
             this.ddlCategoryList.DataBind();
             this.ddlCategoryList.ClearSelection();
             this.ddlCategoryList.Items.FindByValue("常用問題").Selected = true;
+            this.ddlCategoryList.Enabled = false;
 
             this.ddlTypingList.DataTextField = "TypingName";
             this.ddlTypingList.DataValueField = "TypingName";
@@ -267,6 +255,7 @@ namespace DynamicQuestionnaire.BackAdmin
                 this.ddlCategoryList.DataBind();
                 this.ddlCategoryList.ClearSelection();
                 this.ddlCategoryList.Items.FindByValue(currentCommonQuestionItsCategoryName).Selected = true;
+                this.ddlCategoryList.Enabled = false;
 
                 this.ddlTypingList.DataTextField = "TypingName";
                 this.ddlTypingList.DataValueField = "TypingName";

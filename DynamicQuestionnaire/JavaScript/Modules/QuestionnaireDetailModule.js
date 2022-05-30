@@ -31,7 +31,7 @@ var GetUserInputs = function () {
 }
 var CheckUserInputs = function (objUser) {
     let resultChecked = true;
-    let phoneRx = /^[0]{1}[0-9]{9}/;
+    let phoneRx = /^[0]{1}[0-9]{9}$/;
     let emailRx = /^(([^<>()[\]\\.,;:\s@\""]+(\.[^<>()[\]\\.,;:\s@\""]+)*)|(\"".+\""))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
     if (!objUser.userName) {
@@ -53,7 +53,7 @@ var CheckUserInputs = function (objUser) {
     }
     else
     {
-        if (!phoneRx.test(objUser.phone)) {
+        if (!phoneRx.test(objUser.phone) || objUser.phone.length > 10) {
             resultChecked = false;
             SetUserInputsItsIsInvalidClass(
                 txtUserPhone,

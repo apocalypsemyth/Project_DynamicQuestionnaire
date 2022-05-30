@@ -801,7 +801,7 @@ var CreateUserDetail = function (objUserModel) {
 
                         <div class="col-12">
                             <div class="d-flex align-items-center justify-content-end">
-                                填寫時間 ${answerDate}
+                                填寫時間 ${new Date(answerDate).toLocaleString()}
                             </div>
                         </div>
                     </div>
